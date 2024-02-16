@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container{
+    height: 100%;
+    max-width: 900px;
+    margin: 0 auto; /* center ma avshe*/
+    padding: 20px;
+    /*  */
+}
+
+.container h1{
+    /* /top,bottom and right,left */
+    margin: 20px 0;
+    text-align: center;
+    /* bottom */
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    /* ek row ma 3 photo lava va che 32+32+32+4->img +gap */
+    width: 32%; /* gap mate pan kadahi naki width*/
+    position: relative; /*text overlap karvano che mate relative karyu ene text mate absolute karishu*/
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img{
+    /* mark */
+    height: 100%;
+    width: 100%;
+
+    /* /filter */
+    /* image black &white thai jashe */
+    filter: grayscale(100%);
+    /* halki shadow */
+    
+    object-fit: cover;
+}
+
+.card :hover{
+    transform: scale(1.03);
+    transition: 0.5s;
+    /* shadow lagavshe */
+    filter: drop-shadow(0 0 10px #333);
+    /* box-shadow: 0 0 10px #333; */
+}
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+     height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffff;
+    /* unvisibal thai jashe */
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg,rgba(0,0,0,0.5) 0% ,rgba(255,255,255,0) 100%);
+    transition: 0.3s;
+}
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.03);
+}
